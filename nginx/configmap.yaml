@@ -24,7 +24,7 @@ data:
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             fastcgi_param PATH_INFO $fastcgi_path_info;
-            fastcgi_pass drupal:9000;
+            fastcgi_pass drupal.dev.svc.cluster.local :9000;
         }
 
         location ~ /\.ht {
