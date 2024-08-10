@@ -4,7 +4,7 @@ metadata:
   name: drupal
   namespace: dev
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: drupal
@@ -25,7 +25,7 @@ spec:
               else
                   cp -r /opt/drupal/web/* /mnt/drupal || true
                   cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
-                  chmod -R 777 /mnt/drupal || true
+                  chmod -R 766 /mnt/drupal || true
               fi
           volumeMounts:
             - name: volume
