@@ -54,4 +54,4 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: azure-blob-storage
+            claimName: azure-file-storage
