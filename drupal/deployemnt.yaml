@@ -23,9 +23,13 @@ spec:
               if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
                   echo 'Directory not empty'
               else
+                  echo 'Starting to copy drupal code'
                   cp -r /opt/drupal/web/* /mnt/drupal || true
                   cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
-                  chmod -R 766 /mnt/drupal || true
+                  mkdir -p /mnt/drupal/sites/default/files || true            
+                  chmod 766 /mnt/drupal/sites/default/files || true
+                  chmod 666 /mnt/drupal/sites/default/settings.php || true
+                  echo 'Finished copying drupal code'
               fi
           volumeMounts:
             - name: volume
