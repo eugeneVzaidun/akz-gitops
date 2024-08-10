@@ -27,10 +27,10 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-            volumeMounts:
-              - mountPath: "/mnt/blob"
-                name: volume
-                readOnly: false
+          volumeMounts:
+            - mountPath: "/mnt/blob"
+              name: volume
+              readOnly: false
       volumes:
         - name: volume
           persistentVolumeClaim:
