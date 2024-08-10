@@ -10,10 +10,17 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /drupal
             pathType: Prefix
             backend:
               service:
                 name: nginx
+                port:
+                  number: 80
+          - path: /node-red
+            pathType: Prefix
+            backend:
+              service:
+                name: node-red
                 port:
                   number: 80
