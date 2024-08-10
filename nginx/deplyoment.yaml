@@ -25,3 +25,16 @@ spec:
           image: nginx:1.17.4-alpine
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: volume
+              readOnly: false
+            - mountPath: /etc/nginx/conf.d
+              name: nginx-conf
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: azure-blob-storage
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf

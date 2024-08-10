@@ -13,6 +13,23 @@ spec:
       labels:
         app: drupal
     spec:
+      initContainers:
+        - name: init-drupal-code
+          image: drupal:10.3.0-php8.3-fpm-alpine3.20
+          command:
+            - sh
+            - -c
+            - |
+              if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
+                  echo 'Directory not empty'
+              else
+                  cp -r /opt/drupal/web/* /mnt/drupal || true
+                  cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
+                  chmod -R 777 /mnt/drupal || true
+              fi
+          volumeMounts:
+            - name: volume
+              mountPath: /mnt/drupal
       containers:
         - name: drupal
           image: drupal:10.3.0-php8.3-fpm-alpine3.20
@@ -25,3 +42,10 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+          volumeMounts:
+            - name: volume
+              mountPath: /var/www/html
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: azure-blob-storage
