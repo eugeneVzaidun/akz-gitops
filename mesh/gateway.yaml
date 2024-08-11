@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: drupal-gateway
-  namespace: dev
+  namespace: mock
 spec:
   selector:
     istio: aks-istio-ingressgateway-external

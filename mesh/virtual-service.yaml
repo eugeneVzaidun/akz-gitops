@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: drupal-virtual-service
-  namespace: dev
+  namespace: mock
 spec:
   hosts:
     - "*"
