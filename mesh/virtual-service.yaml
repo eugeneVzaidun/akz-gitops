@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: drupal-virtual-service
+  namespace: dev
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - drupal-gateway
+  http:
+    - match:
+      route:
+        - destination:
+            port:
+              number: 80
+            host: nginx
