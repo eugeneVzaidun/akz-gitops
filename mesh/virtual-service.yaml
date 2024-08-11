@@ -12,5 +12,5 @@ spec:
     - route:
         - destination:
             port:
-              number: 9080
-            host: productpage
+              number: 80
+            host: nginx
