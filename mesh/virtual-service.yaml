@@ -9,9 +9,8 @@ spec:
   gateways:
     - drupal-gateway
   http:
-    - match:
-        - route:
-            - destination:
-                port:
-                  number: 80
-                host: nginx
+    - route:
+        - destination:
+            port:
+              number: 9080
+            host: productpage
