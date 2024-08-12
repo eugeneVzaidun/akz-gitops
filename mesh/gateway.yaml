@@ -12,13 +12,13 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "drupal.lelos.xyz"
+        - "*"
     - port:
         number: 443
         name: https
         protocol: HTTPS
       hosts:
-        - "drupal.lelos.xyz"
+        - "*"
       tls:
         mode: SIMPLE
         credentialName: tls-secret
