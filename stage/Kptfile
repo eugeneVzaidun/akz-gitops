@@ -1,0 +1,9 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: stage
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    kustomize.toolkit.fluxcd.io/reconcile: disabled
+info:
+  description: sample description
