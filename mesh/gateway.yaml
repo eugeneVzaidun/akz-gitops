@@ -7,7 +7,7 @@ spec:
   selector:
     istio: aks-istio-ingressgateway-external
   servers:
-    - port:
+    port:
         number: 80
         name: http
         protocol: HTTP
