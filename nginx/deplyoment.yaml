@@ -34,7 +34,7 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: azure-blob-storage
+            claimName: pvc-azuredisk
         - name: nginx-conf
           configMap:
             name: nginx-conf

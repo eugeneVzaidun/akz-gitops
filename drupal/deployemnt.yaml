@@ -4,7 +4,7 @@ metadata:
   name: drupal
   namespace: dev
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: drupal
@@ -27,7 +27,7 @@ spec:
                   cp -r /opt/drupal/web/* /mnt/drupal || true
                   cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
                   mkdir -p /mnt/drupal/sites/default/files || true            
-                  chmod 766 /mnt/drupal/sites/default/files || true
+                  chmod 777 /mnt/drupal/sites/default/files || true
                   chmod 666 /mnt/drupal/sites/default/settings.php || true
                   echo 'Finished copying drupal code'
               fi
@@ -54,4 +54,4 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: azure-blob-storage
+            claimName: pvc-azuredisk
