@@ -5,7 +5,7 @@ metadata:
   namespace: mock
 spec:
   hosts:
-    - "*"
+    - "drupal.lelos.xyz"
   gateways:
     - drupal-gateway
   http:
