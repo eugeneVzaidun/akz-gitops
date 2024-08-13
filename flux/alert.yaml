@@ -9,7 +9,7 @@ spec:
     name: telegram-provider
   eventSeverity: info
   eventSources:
-    - kind: GitRepository
-      name: "*"
     - kind: Kustomization
+      name: "*"
+    - kind: GitRepository
       name: "*"
