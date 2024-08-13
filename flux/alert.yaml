@@ -2,7 +2,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: flux-deployment-alert
-  namespace: flux-config
+  namespace: flux-system
 spec:
   summary: "Flux Kustomization Alert"
   providerRef:
