@@ -4,5 +4,8 @@ metadata:
   name: webhook-provider
   namespace: flux-system
 spec:
-  type: generic
-  address: https://agi-stage.bildi.ai/flux/notify
+  type: telegram
+  address: https://api.telegram.org
+  channel: "@vimoj2"
+  secretRef:
+    name: telegram-secret
