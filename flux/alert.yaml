@@ -6,7 +6,7 @@ metadata:
 spec:
   summary: "Flux Kustomization Alert"
   providerRef:
-    name: webhook-provider
+    name: telegram-provider
   eventSeverity: info
   eventSources:
     - kind: GitRepository
