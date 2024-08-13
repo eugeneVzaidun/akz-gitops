@@ -1,13 +1,15 @@
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: flux-deployment-alert
   namespace: flux-config
 spec:
+  summary: "Flux Kustomization Alert"
   providerRef:
     name: webhook-provider
-  eventSeverity: info
+  eventSeverity: debug
   eventSources:
+    - kind: GitRepository
+      name: "*"
     - kind: Kustomization
       name: "*"
-  summary: "Flux Kustomization Alert"
