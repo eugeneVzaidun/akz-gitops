@@ -7,7 +7,7 @@ spec:
   summary: "Flux Kustomization Alert"
   providerRef:
     name: webhook-provider
-  eventSeverity: debug
+  eventSeverity: info
   eventSources:
     - kind: GitRepository
       name: "*"
