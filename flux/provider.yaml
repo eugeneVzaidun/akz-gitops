@@ -6,6 +6,6 @@ metadata:
 spec:
   type: telegram
   address: https://api.telegram.org
-  channel: "@vimoj2"
+  channel: "460241504"
   secretRef:
     name: telegram-secret
