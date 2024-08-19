@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: 0
   containers:
-    - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+    - image: ubuntu
       resources:
         requests:
           cpu: 100m
@@ -16,13 +16,12 @@ spec:
           memory: 128Mi
       name: nginx-nfs
       command:
-        - "/bin/sh"
-        - "-c"
-        - while true; do echo $(date) >> /mnt/azure/outfile; sleep 1; done
-      volumeMounts:
-        - name: disk01
-          mountPath: /mnt/azure
-  volumes:
-    - name: disk01
-      persistentVolumeClaim:
-        claimName: pvc-nfs
+        - "sleep"
+        - "3600"
+  #     volumeMounts:
+  #       - name: disk01
+  #         mountPath: /mnt/azure
+  # volumes:
+  #   - name: disk01
+  #     persistentVolumeClaim:
+  #       claimName: pvc-nfs
