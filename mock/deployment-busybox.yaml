@@ -4,6 +4,7 @@ metadata:
   name: nginx-nfs
   namespace: mock
 spec:
+  replicas: 0
   containers:
     - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       resources:
