@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: mock-virtual-service
+  namespace: mock
+spec:
+  hosts:
+    - "mock.lelos.xyz"
+  gateways:
+    - drupal-gateway
+  http:
+    - route:
+        - destination:
+            port:
+              number: 80
+            host: node-red.mock.svc.cluster.local
