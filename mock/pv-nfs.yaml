@@ -11,5 +11,5 @@ spec:
   mountOptions:
     - vers=3
   nfs:
-    server: 10.0.0.4
+    server: 10.227.224.4
     path: /aksvolume
