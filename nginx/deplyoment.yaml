@@ -4,7 +4,7 @@ metadata:
   name: nginx
   namespace: dev
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -34,7 +34,7 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: pvc-nfs
+            claimName: pvc-nfs-ultra
         - name: nginx-conf
           configMap:
             name: nginx-conf
