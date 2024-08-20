@@ -18,6 +18,7 @@ spec:
       containers:
         - name: node-red
           image: nodered/node-red:latest
+          command: ["node-red", "-u", "/mnt/azure"]
           ports:
             - containerPort: 1880
           resources:
