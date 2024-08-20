@@ -22,6 +22,7 @@ spec:
             - |
               if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
                   echo 'Directory not empty'
+                  ls -l /mnt/drupal 
               else
                   echo 'Starting to copy drupal code'
                   cp -r /opt/drupal/web/* /mnt/drupal || true
