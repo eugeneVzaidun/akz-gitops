@@ -20,18 +20,18 @@ spec:
             - sh
             - -c
             - |
-              if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
-                  echo 'Directory not empty'
-                  ls -l /mnt/drupal 
-              else
-                  echo 'Starting to copy drupal code'
-                  cp -r /opt/drupal/web/* /mnt/drupal || true
-                  cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
-                  mkdir -p /mnt/drupal/sites/default/files || true            
-                  chmod 777 /mnt/drupal/sites/default/files || true
-                  chmod 666 /mnt/drupal/sites/default/settings.php || true
-                  echo 'Finished copying drupal code'
-              fi
+              # if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
+              #     echo 'Directory not empty'
+              #     ls -l /mnt/drupal 
+              # else
+              echo 'Starting to copy drupal code'
+              cp -r /opt/drupal/web/* /mnt/drupal || true
+              cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
+              mkdir -p /mnt/drupal/sites/default/files || true            
+              chmod 777 /mnt/drupal/sites/default/files || true
+              chmod 666 /mnt/drupal/sites/default/settings.php || true
+              echo 'Finished copying drupal code'
+              # fi
           volumeMounts:
             - name: volume
               mountPath: /mnt/drupal
