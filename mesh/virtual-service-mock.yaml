@@ -13,4 +13,4 @@ spec:
         - destination:
             port:
               number: 80
-            host: node-red.mock.svc.cluster.local
+            host: node-red.dev.svc.cluster.local

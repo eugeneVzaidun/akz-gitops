@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-red-deployment
-  namespace: mock
+  namespace: dev
   labels:
     app: node-red
 spec:
@@ -28,10 +28,10 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-      #     volumeMounts:
-      #       - name: disk01
-      #         mountPath: /mnt/azure
-      # volumes:
-      #   - name: disk01
-      #     persistentVolumeClaim:
-      #       claimName: pvc-nfs
+          volumeMounts:
+            - name: disk01
+              mountPath: /mnt/azure
+      volumes:
+        - name: disk01
+          persistentVolumeClaim:
+            claimName: pvc-nfs
