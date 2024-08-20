@@ -4,7 +4,7 @@ metadata:
   name: drupal
   namespace: dev
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: drupal
@@ -20,11 +20,11 @@ spec:
             - sh
             - -c
             - |
-              if [ "$(find "/mnt/drupal" -mindepth 1 -print -quit)" ]; then
+              if [ "$(find "/mnt/drupal/drupal/rijksvaccinatie" -mindepth 1 -print -quit)" ]; then
                   echo 'Directory not empty'
               else
                   echo 'Starting to copy drupal code'
-                  cp -r /opt/drupal/web/* /mnt/drupal || true
+                  cp -r /opt/drupal/web/* /mnt/drupal/drupal/rijksvaccinatie || true
                   cp /mnt/drupal/sites/default/default.settings.php /mnt/drupal/sites/default/settings.php || true
                   mkdir -p /mnt/drupal/sites/default/files || true            
                   chmod 777 /mnt/drupal/sites/default/files || true
@@ -50,8 +50,9 @@ spec:
           volumeMounts:
             - name: volume
               mountPath: /var/www/html
+              subpath: drupal/rijksvaccinatie
               readOnly: false
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: my-azurefile
+            claimName: pvc-nfs
