@@ -28,10 +28,10 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          volumeMounts:
-            - name: disk01
-              mountPath: /mnt/azure
-      volumes:
-        - name: disk01
-          persistentVolumeClaim:
-            claimName: pvc-nfs-ultra
+      #     volumeMounts:
+      #       - name: disk01
+      #         mountPath: /mnt/azure
+      # volumes:
+      #   - name: disk01
+      #     persistentVolumeClaim:
+      #       claimName: pvc-nfs-ultra
