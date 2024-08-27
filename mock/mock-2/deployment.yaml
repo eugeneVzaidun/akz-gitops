@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-red-deployment
-  namespace: mock-2
+  namespace: mock2
   labels:
     app: node-red
 spec:
